@@ -193,6 +193,14 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.3.2"
+  custom_lint_builder:
+    dependency: transitive
+    description:
+      name: custom_lint_builder
+      sha256: "5d472a901d07ab5ba0239262c340d29930aa2cfd0c73068aa4d1142a353ffee4"
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.3.2"
   custom_lint_core:
     dependency: transitive
     description:
@@ -376,6 +384,14 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.3.2"
+  hotreloader:
+    dependency: transitive
+    description:
+      name: hotreloader
+      sha256: "66b78edf340352fcdd2043ab6116e58ec018c5968cab6485cde0f1769d28e0b8"
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "3.0.5"
   http:
     dependency: transitive
     description:
@@ -720,6 +736,14 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.1.4"
+  riverpod_lint:
+    dependency: "direct main"
+    description:
+      name: riverpod_lint
+      sha256: "11c4e23dfc0e778d66512c92933698bb74419114e62c62c29fb3638b405cc4c4"
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.1.6"
   rxdart:
     dependency: transitive
     description:
@@ -869,6 +893,14 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.1.4"
+  vm_service:
+    dependency: transitive
+    description:
+      name: vm_service
+      sha256: e7fb6c2282f7631712b69c19d1bff82f3767eea33a2321c14fa59ad67ea391c7
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "9.4.0"
   watcher:
     dependency: transitive
     description:

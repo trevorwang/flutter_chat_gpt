@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import 'sample.dart';
+import 'chat_widget.dart';
 
 class App extends StatelessWidget {
   const App({
@@ -12,7 +12,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return const ProviderScope(
       child: MaterialApp(
-        home: SampleWidget(),
+        home: ChatWidget(),
       ),
     );
   }
