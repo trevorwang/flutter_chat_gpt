@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import 'chat_widget.dart';
+import 'widget/chat_widget.dart';
 
 class App extends StatelessWidget {
   const App({

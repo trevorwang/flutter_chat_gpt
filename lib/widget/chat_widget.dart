@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_chat_gpt/conf/config.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:markdown/markdown.dart' as md;
+import 'package:openai_api/openai_api.dart';
 
-import 'data/message.dart';
-import 'state/message_state.dart';
+import '../data/message.dart';
+import '../state/message_state.dart';
 
 final messageListProvider = StateNotifierProvider<MessageList, List<Message>>(
   (ref) {
@@ -60,11 +62,24 @@ class ChatWidget extends HookConsumerWidget {
   }
 
   void sendRequest(WidgetRef ref, String text) async {
-    // final data = await api.sendChat(ChatRequest(message: text));
-    // log.info(data);
-    // ref
-    // .read(messageListProvider.notifier)
-    // .newMessage(data.message.trim(), Role.gpt);
+    final msgId = uuid.v4();
+    final result = await openai.sendChatCompletion(
+      ChatCompletionRequest(
+        model: Model.gpt3_5Turbo,
+        messages: [
+          ChatMessage(
+            content: text,
+            role: ChatMessageRole.user,
+          )
+        ],
+      ),
+    );
+    final content = result.choices.first.message?.content ?? '';
+    ref.read(messageListProvider.notifier).newMessage(
+          content,
+          Role.gpt,
+          id: msgId,
+        );
   }
 
   void submitTextValue(

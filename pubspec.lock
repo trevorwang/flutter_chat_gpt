@@ -154,7 +154,7 @@ packages:
     source: hosted
     version: "4.4.0"
   collection:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: collection
       sha256: cfc915e6923fe5ce6e153b0723c753045de46de1b4d63771530504004a45fae0
@@ -234,7 +234,7 @@ packages:
     source: hosted
     version: "4.1.0"
   envied:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: envied
       sha256: d5d978fbd578b5c00123003609c39185e0b1ddf9d2ac460d710dd0eb2fc223d7
@@ -242,7 +242,7 @@ packages:
     source: hosted
     version: "0.3.0"
   envied_generator:
-    dependency: transitive
+    dependency: "direct dev"
     description:
       name: envied_generator
       sha256: "6c5a98c27c5eae925807692eb252ccac2b8e81f09bace1f07207c47dfb6a4eb0"
