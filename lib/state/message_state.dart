@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../conf/config.dart';
@@ -18,5 +19,25 @@ class MessageList extends StateNotifier<List<Message>> {
         role: role,
       )
     ];
+  }
+
+  void newStreamMessage(String streamText, Role role, String id) {
+    final msg = state.firstWhereOrNull((element) => element.id == id);
+
+    if (msg != null) {
+      state = [
+        ...state.where((element) => element.id != id),
+        msg.copyWith(content: msg.content + streamText),
+      ];
+    } else {
+      state = [
+        ...state,
+        Message(
+          content: streamText,
+          id: id,
+          role: role,
+        )
+      ];
+    }
   }
 }

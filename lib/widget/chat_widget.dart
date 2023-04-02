@@ -63,9 +63,10 @@ class ChatWidget extends HookConsumerWidget {
 
   void sendRequest(WidgetRef ref, String text) async {
     final msgId = uuid.v4();
-    final result = await openai.sendChatCompletion(
+    await openai.sendChatCompletionStream(
       ChatCompletionRequest(
         model: Model.gpt3_5Turbo,
+        stream: true,
         messages: [
           ChatMessage(
             content: text,
@@ -73,13 +74,18 @@ class ChatWidget extends HookConsumerWidget {
           )
         ],
       ),
-    );
-    final content = result.choices.first.message?.content ?? '';
-    ref.read(messageListProvider.notifier).newMessage(
-          content,
-          Role.gpt,
-          id: msgId,
-        );
+      onSuccess: (p0) {
+        final res = p0;
+        logger.d(res);
+        ref.read(messageListProvider.notifier).newStreamMessage(
+              p0.choices.first.delta?.content ?? "",
+              Role.gpt,
+              msgId,
+            );
+      },
+    ).catchError((e) {
+      logger.e(e);
+    });
   }
 
   void submitTextValue(
